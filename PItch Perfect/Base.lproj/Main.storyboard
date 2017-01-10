@@ -21,10 +21,36 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yZH-9x-yHR">
-                                <rect key="frame" x="163" y="318" width="49" height="30"/>
-                                <color key="backgroundColor" red="0.20648228664412716" green="1" blue="0.15429560539295917" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <state key="normal" title="Record"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="sRj-cm-WxY">
+                                <rect key="frame" x="163" y="318" width="155" height="155"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="tWa-et-U2Z">
+                                        <rect key="frame" x="0.0" y="0.0" width="155" height="155"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="aBz-Lr-ooN">
+                                                <rect key="frame" x="0.0" y="0.0" width="155" height="155"/>
+                                            </stackView>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bjP-l0-WYq">
+                                <rect key="frame" x="133" y="448" width="106" height="30"/>
+                                <state key="normal" title="Stop Recording"/>
+                                <connections>
+                                    <action selector="stopRecording:" destination="BYZ-38-t0r" eventType="touchUpInside" id="NTL-DQ-nYI"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Tap to record" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pP2-8K-lvp">
+                                <rect key="frame" x="136.5" y="419" width="102.5" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yZH-9x-yHR">
+                                <rect key="frame" x="109" y="240" width="155" height="155"/>
+                                <state key="normal" image="Record"/>
                                 <connections>
                                     <action selector="recordAudio:" destination="BYZ-38-t0r" eventType="touchUpInside" id="TB2-Rz-50r"/>
                                 </connections>
@@ -32,13 +58,25 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="yZH-9x-yHR" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="N1w-vd-ajU"/>
-                            <constraint firstItem="yZH-9x-yHR" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="WB7-wW-3YN"/>
+                            <constraint firstItem="bjP-l0-WYq" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="-1.5" id="Pii-nc-vM7"/>
+                            <constraint firstItem="bjP-l0-WYq" firstAttribute="top" secondItem="pP2-8K-lvp" secondAttribute="bottom" constant="8.5" id="dTK-oe-chz"/>
+                            <constraint firstItem="pP2-8K-lvp" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ftm-NU-Fro"/>
+                            <constraint firstItem="yZH-9x-yHR" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="jdH-XB-hdX"/>
+                            <constraint firstItem="yZH-9x-yHR" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="jds-AA-cVx"/>
+                            <constraint firstItem="pP2-8K-lvp" firstAttribute="top" secondItem="yZH-9x-yHR" secondAttribute="bottom" constant="24" id="joj-Aq-Riw"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="recordingButton" destination="yZH-9x-yHR" id="7Ce-xV-pEk"/>
+                        <outlet property="recordingLabel" destination="pP2-8K-lvp" id="UOu-0n-vFf"/>
+                        <outlet property="stopRecordingButton" destination="bjP-l0-WYq" id="ErH-sW-nIz"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
         </scene>
     </scenes>
+    <resources>
+        <image name="Record" width="155" height="155"/>
+    </resources>
 </document>
