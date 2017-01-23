@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  recordAudioController.swift
 //  PItch Perfect
 //
 //  Created by Kevin on 19/12/2016.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class recordAudioController: UIViewController {
 
     @IBOutlet weak var recordingButton: UIButton!
     @IBOutlet weak var recordingLabel: UILabel!
@@ -20,11 +20,15 @@ class ViewController: UIViewController {
     }
 
     @IBAction func recordAudio(_ sender: Any) {
-        print("record button was pressed!")
+        
         recordingLabel.text = "Recording in Progress"
+        stopRecordingButton.isEnabled=true
+        recordingButton.isEnabled=false
     }
     @IBAction func stopRecording(_ sender: Any) {
-        print("stopRecording button was pressed")
+        recordingLabel.text = "Tap to Record"
+        stopRecordingButton.isEnabled=false
+        recordingButton.isEnabled=true
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
